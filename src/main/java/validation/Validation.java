@@ -1,5 +1,6 @@
 package validation;
 
+import database.DataBaseConnector;
 import validation.modules.CorrectnessCheck;
 import validation.modules.CountingNumbers;
 import validation.modules.ParenthesesCheck;
@@ -17,6 +18,8 @@ public class Validation
 
         if (CorrectnessCheck.check(expression)) {
             result += "The expression is correct.\n";
+            DataBaseConnector dataBaseConnector = new DataBaseConnector();
+            dataBaseConnector.addNewExpression(expression);
         } else {
             result += "Expression is invalid!\n";
         }
