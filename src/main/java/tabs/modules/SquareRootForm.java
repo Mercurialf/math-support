@@ -7,37 +7,28 @@ import ui.TextField;
 
 import javax.swing.*;
 
-public class ExpressionCheckForm extends JPanel
+public class SquareRootForm extends JPanel
 {
     private final TextField expressionTextField;
     private final TextArea resultTextArea;
     private final Button checkButton;
+    private final JScrollPane scrollPane;
 
-    public ExpressionCheckForm() {
+    public SquareRootForm() {
         expressionTextField = new TextField(20, new int[] {10, 10, 250, 30});
         resultTextArea = new TextArea(new int[] {10, 50, 400, 200});
-        checkButton = new Button("Check", new int[] {260, 10, 150, 30});
+        scrollPane = new JScrollPane(resultTextArea);
+        scrollPane.setBounds(10, 50, 400, 200);
+        checkButton = new Button("Check √", new int[] {260, 10, 150, 30});
 
         this.setLayout(null);
         this.add(expressionTextField);
-        this.add(resultTextArea);
+        this.add(scrollPane);
         this.add(checkButton);
 
-        this.setBounds(10, 10, 500, 500);
+        this.setBounds(430, 10, 500, 500);
         this.setSize(420, 260);
         this.setBackground(Config.BACKGROUND_COLOR);
         this.setVisible(true);
-    }
-
-    public Button getCheckButton() {
-        return checkButton;
-    }
-
-    public TextField getExpressionTextField() {
-        return expressionTextField;
-    }
-
-    public TextArea getResultTextArea() {
-        return resultTextArea;
     }
 }
