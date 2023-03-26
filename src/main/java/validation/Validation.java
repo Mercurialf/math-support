@@ -1,6 +1,7 @@
 package validation;
 
 import validation.modules.CorrectnessCheck;
+import validation.modules.CountingNumbers;
 import validation.modules.ParenthesesCheck;
 
 public class Validation
@@ -20,6 +21,7 @@ public class Validation
             result += "Expression is invalid!\n";
         }
 
+        result += "Number of numbers in expression:" + CountingNumbers.countingNumberInExpression(expression);
         return result;
     }
 }
