@@ -11,4 +11,5 @@ public class Config
     public final static String MAIN_PATTERN = "^(?:(?:[-+]?\\d+(?:\\.\\d+)?|\\w+)\\s*" +
             "(?:[-+*/]\\s*(?:[-+]?\\d+(?:\\.\\d+)?|\\w+)\\s*)*[=]\\s*" +
             "(?:[-+]?\\d+(?:\\.\\d+)?|\\w+)\\s*)$";
+    public final static String СOUNT_PATTERN = "-?\\d+(\\.\\d+)?";
 }
