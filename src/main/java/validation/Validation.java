@@ -11,7 +11,6 @@ public class Validation
     public static String validation(String expression) {
         String result = "";
         boolean parenthesesCheckResult = ParenthesesCheck.check(expression);
-        boolean correctnessCheckResult = CorrectnessCheck.check(expression);
         boolean characterCheckResult = CharacterCheck.check(expression);
 
         if (parenthesesCheckResult) {
@@ -26,11 +25,7 @@ public class Validation
             result += "Not all characters are correct!\n";
         }
 
-        if (correctnessCheckResult) {
-            result += "The expression is correct.\n";
-        } else {
-            result += "Expression is invalid!\n";
-        }
+        result += CorrectnessCheck.check(expression);
 
         if (parenthesesCheckResult & characterCheckResult) {
             DataBaseConnector dataBaseConnector = new DataBaseConnector();
