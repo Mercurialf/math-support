@@ -1,6 +1,7 @@
 package tabs;
 
 import config.Config;
+import database.DataBaseConnector;
 import tabs.modules.ExpressionCheckForm;
 import tabs.modules.SquareRootForm;
 import validation.Validation;
@@ -22,8 +23,9 @@ public class MainTab extends JFrame
         this.setLocationRelativeTo(null);
 
         expressionCheckForm = new ExpressionCheckForm();
-        expressionCheckForm.getCheckButton().addActionListener(new checkButtonActionListener());
+        expressionCheckForm.getCheckButton().addActionListener(new expressionButtonActionListener());
         squareRootForm = new SquareRootForm();
+        squareRootForm.getCheckButton().addActionListener(new squareButtonActionListener());
 
         this.setLayout(null);
         this.add(squareRootForm);
@@ -31,12 +33,21 @@ public class MainTab extends JFrame
         this.setVisible(true);
     }
 
-    class checkButtonActionListener implements ActionListener {
+    class expressionButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             expressionCheckForm.getResultTextArea().setText(
                     Validation.validation(expressionCheckForm.getExpressionTextField().getText())
             );
+        }
+    }
+
+    class squareButtonActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            DataBaseConnector dataBaseConnector = new DataBaseConnector();
+            squareRootForm.setResultTextArea(dataBaseConnector.
+                    getExpressions(squareRootForm.getExpressionTextField().getText()));
         }
     }
 }
